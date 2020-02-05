@@ -29,15 +29,22 @@ export function getMostComments(req, res) {
 }
 
 export function getPostById(req, res) {
-  fetch('https://jsonplaceholder.typicode.com/posts/' + req.params.id)
-    .then(data=> {
-      res.send(data);
+  fetch(`https://jsonplaceholder.typicode.com/posts/${req.params.id}`)
+    .then(data => {
+      res.send(data.json())
     })
 }
 
 export function getAllPosts(req, res) {
   fetch('https://jsonplaceholder.typicode.com/posts')
     .then(data => {
-      res.json(data);
+      res.send(data.json())
+    })
+}
+
+export function searchComments(req, res) {
+  fetch('https://jsonplaceholder.typicode.com/comments')
+    .then(data => {
+      res.send(data.json())
     })
 }
